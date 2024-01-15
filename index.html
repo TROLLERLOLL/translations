@@ -1,5 +1,6 @@
 <html>
   <head>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
     <title>Translationmanager</title>
     <script src="jszip.min.js"></script>
     <script src="script.js"></script>
@@ -13,6 +14,7 @@
       <input type="file" id="fileinput" multiple="multiple" accept=".resx"/>
 <br>
 <button id="toexcel">To Excel</button>
+<a download="somedata.xlsx" href="#" onclick="return ExcellentExport.convert({ anchor: this, filename: 'data_123.array', format: 'xlsx'},[{name: 'Sheet Name Here 1', from: {table: 'langtable'}}]);">down</a>
     </div>
       <br>
 
