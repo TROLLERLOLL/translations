@@ -221,3 +221,29 @@ function save() {
     });
   }
 }
+
+function toexcel() {
+var tabledata = [];
+
+for(var i = 0; i < langs.length; i++) {
+for (var b = 0; b < langs[i].values.length; b++) {
+var found = false;
+var Index = -1;
+for (var z = 0; z < tabledata.length; z++) {
+if (tabledata[z][0] == langs[i].values[b].key)  {
+found = true;
+Index = z;
+break;
+}
+}
+
+if (found) {
+tabledata[Index].push(langs[i].values[b].value);
+} else {
+tabledata.push([langs[i].values[b].key, langs[i].values[b].value])
+}
+}
+}
+
+return ExcellentExport.convert({ anchor: this, filename: 'data_123.array', format: 'xlsx'},[{name: 'Sheet Name Here 1', from: {array: tabledata}}]);
+}
